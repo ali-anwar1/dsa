@@ -38,6 +38,7 @@ def __init__(self, k: int):
         if self.isEmpty(): return -1
         return self.right.prev.val
         
+        
 
     def isEmpty(self) -> bool:
         return self.left.next == self.right
