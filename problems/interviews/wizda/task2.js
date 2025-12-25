@@ -62,6 +62,11 @@ Write a query to return the employee names with highest salary in each departmen
  * 
  */
 
-`SELECT names FROM employee_salary
-WHERE (SELECT salary FROM employee_salary ORDER BY salary LIMIT 1)) > salary GROUP BY department;
-`
+`SELECT e.name, es.salary, es.department
+FROM employee e
+JOIN employee_salary es ON e.id = es.employee_id
+WHERE (es.department, es.salary) IN (
+    SELECT department, MAX(salary)
+    FROM employee_salary
+    GROUP BY department
+);`
