@@ -38,3 +38,6 @@ function test(testData, expected) {
 }
 
 test([1, 8, 6, 2, 5, 4, 8, 3, 7], 49) 
+
+
+test([1, 8, 6, 2, 5, 4, 8, 3, 7, 3, 2, 4], 49) 
