@@ -10,8 +10,11 @@ var longestCommonPrefix = function (strs) {
     let prefix = strs[0];
 
     for (let i = 1; i < strs.length; i++) {
+        console.log("Comparing prefix", prefix, "with", strs[i])
         while (!strs[i].startsWith(prefix)) {
+            console.log("Prefix", prefix, "does not start with", strs[i])
             prefix = prefix.slice(0, -1);
+            console.log("Updated prefix:", prefix)
             if (prefix === "") return "";
         }
     }
@@ -32,3 +35,5 @@ function test(testData, expected) {
 
 test(["flower", "flow", "flight"], "fl")
 test(["dog", "racecar", "car"], "")
+test(["flow", "flight", "flower",], "fl")
+test(["interspecies", "interstellar", "interstate"], "inters")
