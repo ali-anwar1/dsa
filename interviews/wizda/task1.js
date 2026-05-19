@@ -1,3 +1,5 @@
+// Manual implementation of Promise.all functionality without using Promise.all
+
 const p1 = new Promise((resolve) => {
     setTimeout(() => resolve("first"), 3000);
 });
@@ -6,7 +8,7 @@ const p2 = new Promise((resolve) => {
     setTimeout(() => resolve("second"), 2000);
 });
 
-const p3 = new Promise((resolve, reject) => {
+const p3 = new Promise((_, reject) => {
     setTimeout(() => reject("Error: this promise cannot be complete"), 2000);
 });
 
