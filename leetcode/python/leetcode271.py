@@ -12,10 +12,37 @@ class Solution:
 
 
     def decode(self, s: str) -> List[str]:
-        return []
+        res = []
+
+        i = 0
+
+        while i < len(s):
+            j = i
+            while s[j] != '#':
+                j += 1
+
+            length = int(s[i:j])
+
+            start_of_word = j + 1
+
+            end_of_word = start_of_word + length
+
+            print(s[start_of_word:end_of_word])
+            res.append(s[start_of_word:end_of_word])
+        
+            i = end_of_word
+
+        return res
 
 
 
 sol = Solution()
 
-print(sol.encode(["hello", "Dear, friend!"]))
+strs = ["hello", "Dear, friend!"]
+encoded_str = sol.encode(strs)
+print(encoded_str)
+decoded_str = sol.decode(encoded_str)
+print(decoded_str)
+
+if strs == decoded_str:
+    print("Passed!")
